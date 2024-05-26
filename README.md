@@ -22,6 +22,7 @@ Outra funcionalidada deste programa, é consultar e validar o CEP para retornar 
 3. CEP
 
 > O CEP fornecido, será validado e consultado, e após êxito na consulta, o endereço é retornado.
+
 > O CPF funcionará como um identificados de cada cadastro, caso um novo cadastro seja feito com o mesmo CPF, ele sobrepõe os dados.
 
 Todos os dados fornecidos serão armazenados em um arquivo de texto.
