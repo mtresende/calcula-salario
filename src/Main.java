@@ -1,10 +1,4 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
@@ -24,14 +18,14 @@ public class Main {
         
         List<String[]> trabalhadores = new ArrayList<>(); // Criando lista de Array para armazenar os dados do trabalhador
         
-        try (BufferedReader reader = new BufferedReader(new FileReader(dados))){
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(dados), StandardCharsets.UTF_8))){
                 String linha;
             while ((linha = reader.readLine()) != null) {
-                    String[] trabalhador = linha.split(",");
+                    String[] trabalhador = linha.split(", ");
                     trabalhadores.add(trabalhador);
             }
         } catch (IOException e) {
-            System.err.println("Ocorreu um erro");
+
         }
     
         System.out.print("Digite seu nome: ");
@@ -159,7 +153,7 @@ public class Main {
                 for (int i = 0; i < trabalhador.length; i++) {
                     writer.write(trabalhador[i]);
                     if (i < trabalhador.length - 1) {
-                        writer.write(",");
+                        writer.write(", ");
                     } else {
                         writer.write("\n");
                     }
